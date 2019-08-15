@@ -1,6 +1,10 @@
 # Run this to make docker wordpress working
+     
+> 1. build containers
+   
+    docker-compose up -d
 
-if other path change command below
+> 2. make container volume files on host system readable by apache and linux user. (change path to container location).
 
 
     sudo chown -R ubuntu:ubuntu ~/containers/wordpress-env
@@ -8,11 +12,18 @@ if other path change command below
 
 
 
-Some useful Docker Commands
-----------------------
-    #Run Docker background
-    docker-compose up -d
+# Rebuild Containers Commands
+  >needs to be run where docker-compose.yaml is.
 
+## 1. kill docker-containers without deleting or affecting site edits
+    docker-compose kill
+
+## 2. Now rebuild docker containers without affecting site edits
+    docker-compose up -d --build
+
+#
+
+## Some useful Docker Commands
     #To Tear Down
     docker-compose down --volumes
 
@@ -24,3 +35,5 @@ Some useful Docker Commands
 
     #remove all docker images
     docker rmi $(docker images -q)
+
+This Preset was proudly presented by www.nexusdesigns.net, your place for designs or websites.
